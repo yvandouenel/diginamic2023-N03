@@ -24,7 +24,6 @@ export class ProductsService {
 
     if (navigator.onLine) {
       console.log(`Navigateur en ligne dans addProduct`);
-      this.offlineQueue.processQueue();
       return this.http
         .post<ProductInterface>(ProductsService.url, product)
         .pipe(
@@ -46,12 +45,6 @@ export class ProductsService {
   }
 
   loadProducts(): Observable<ProductInterface[]> {
-    if (navigator.onLine) {
-      console.log(
-        `Navigateur en ligne dans loadProducts : appel de processQueue`
-      );
-      this.offlineQueue.processQueue();
-    }
     console.log(`Dans loadProduct de ProductsService`);
     return this.http.get<ProductInterface[]>(ProductsService.url);
   }

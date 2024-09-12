@@ -24,20 +24,26 @@ export class Offlinequeue {
   }
 
   processQueue(): void {
-    if (!this.isOnline) return;
-    console.log(`Dans processQueue`);
+    console.log(`Dans processQueue, navigator.onLine`, navigator.onLine);
+    if (!navigator.onLine) return;
     const queue = this.getQueue();
+    console.log(
+      `Dans processQueue, navigator.onLine, queue`,
+      navigator.onLine,
+      queue
+    );
     if (queue.length === 0) return;
     from(queue)
       .pipe(
-        mergeMap((item) =>
-          this.sendRequest(item).pipe(
+        mergeMap((item) => {
+          console.log(`item envoyé à sendRequest :`, item);
+          return this.sendRequest(item).pipe(
             catchError((error) => {
               console.error('Error processing queued item:', error);
               return of(null);
             })
-          )
-        )
+          );
+        })
       )
       .subscribe(() => {
         this.clearQueue();
