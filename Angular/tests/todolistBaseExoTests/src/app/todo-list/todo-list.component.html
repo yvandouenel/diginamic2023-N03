@@ -1,0 +1,12 @@
+<h1>TODOLIST</h1>
+<p class="text-warning error" *ngIf="errorMessage">{{ errorMessage }}</p>
+<digi-form-task></digi-form-task>
+<ul>
+  <li *ngFor="let task of tasks">
+    <digi-task
+      (sortTasks)="sortTasks()"
+      (deleteTask)="handleDelete(task.id)"
+      [task]="task"
+    ></digi-task>
+  </li>
+</ul>

@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "VTT Specialiazed",
+      "description": "Entièrement suspendu, bon état général",
+      "price": 500
+    },
+    {
+      "id": "2",
+      "name": "Vélo pliable Brompton",
+      "description": "Bon état de marche",
+      "price": 850
+    },
+    {
+      "id": "a85d",
+      "name": "Tandem électrique Amsterdam'air",
+      "description": "Bon état de marche",
+      "price": 1980
+    },
+    {
+      "id": "a847",
+      "name": "Vélo Treking Bergamont",
+      "description": "Très bon état",
+      "price": 370
+    },
+    {
+      "id": "01e0",
+      "name": "Vélo course Peugeot",
+      "description": "Correctement entretenu, mécanisme des changement de vitesse à revoir",
+      "price": 250
+    },
+    {
+      "id": "7cd6",
+      "name": "Rockrider",
+      "description": "Vélot TT",
+      "price": 289
+    },
+    {
+      "id": "e9d9",
+      "name": "test",
+      "description": "test",
+      "price": 1
+    }
+  ]
+}

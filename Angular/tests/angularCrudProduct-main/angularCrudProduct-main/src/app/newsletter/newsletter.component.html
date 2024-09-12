@@ -1,0 +1,4 @@
+<form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()">
+  <input type="email" formControlName="email" placeholder="Votre email" />
+  <button type="submit" [disabled]="!newsletterForm.valid">S'abonner</button>
+</form>

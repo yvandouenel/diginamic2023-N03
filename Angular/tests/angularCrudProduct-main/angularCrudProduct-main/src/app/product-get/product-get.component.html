@@ -1,0 +1,77 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des Produits</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let product of products">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">ID : {{ product.id }}</h6>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">
+            <strong>Prix : {{ product.price }}</strong>
+          </p>
+        </div>
+        <div class="card-footer">
+          <button
+            class="btn btn-primary me-2"
+            [routerLink]="['/edit', product.id]"
+          >
+            Modifier
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="handleDeleteProduct(product.id)"
+          >
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="productToDeleteId">
+  <div
+    class="modal"
+    tabindex="-1"
+    [style.display]="modalVisible ? 'block' : 'none'"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmation</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="handleCancelDelete()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Etes vous sûr de vouloir supprimer le produit d'id
+            {{ productToDeleteId }}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="handleConfirmDelete(productToDeleteId)"
+          >
+            Supprimer
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="handleCancelDelete()"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
